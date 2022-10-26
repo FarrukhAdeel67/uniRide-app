@@ -1,41 +1,41 @@
 "use strict";
 
 const table = "users";
+const { DataTypes } = require("sequelize");
 
 module.exports = {
-  up: async function (queryInterface, Sequelize) {
+  up: async function (queryInterface, DataTypes) {
     await queryInterface.createTable(table, {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       },
       name: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: true,
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: true,
-      },
-      status: {
-        type: Sequelize.ENUM("Pending", "Approved", "Rejected"),
+      phoneNumber: {
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: "Pending",
       },
-      archived: {
-        type: Sequelize.BOOLEAN,
+      password: {
         allowNull: false,
-        defaultValue: false,
+        type: DataTypes.STRING,
+      },
+      catagory: {
+        type: DataTypes.ENUM("Student", "Faculty", "Driver"),
+        allowNull: false,
+        defaultValue: "Student",
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
       },
     });
   },
