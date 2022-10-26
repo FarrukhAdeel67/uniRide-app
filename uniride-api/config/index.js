@@ -21,6 +21,12 @@ var config = convict({
     env: "PORT",
     arg: "port",
   },
+  pass_secret: {
+    doc: "PASS secret key",
+    format: String,
+    default: "",
+    env: "PASS_SECRET",
+  },
   db: {
     host: {
       doc: "Database host name/IP",
