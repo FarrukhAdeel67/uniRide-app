@@ -24,7 +24,7 @@ module.exports = {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      catagory: {
+      category: {
         type: DataTypes.ENUM("Student", "Faculty", "Driver"),
         allowNull: false,
         defaultValue: "Student",
