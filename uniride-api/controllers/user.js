@@ -13,7 +13,7 @@ module.exports = {
             }
             const phoneNumberFound = await Users.findOne({
                 where: {
-                    phoneNumber: phoneNumber,
+                    phone_number: phoneNumber,
                 },
                 transaction,
             });
@@ -22,7 +22,7 @@ module.exports = {
             }
             let user = await Users.create({
                 name: name,
-                phoneNumber: phoneNumber,
+                phone_number: phoneNumber,
                 password,
                 category,
             }, {
@@ -50,7 +50,7 @@ module.exports = {
             if (!phoneNumber || !password) {
                 throw { status: 400, message: "Required feilds cannot be empty" };
             }
-            if (user.phoneNumber !== phoneNumber) {
+            if (user.phone_number !== phoneNumber) {
                 throw { status: 404, message: "wrong Phone Number" };
             }
             const hashedPassword = await bcrypt.compare(password, user.password);
