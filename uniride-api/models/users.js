@@ -13,19 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    email: {
+    phoneNumber: {
       type: DataTypes.STRING,
-      allowNull: true,
-    },
-    status: {
-      type: DataTypes.ENUM("Pending", "Approved", "Rejected"),
       allowNull: false,
-      defaultValue: "Pending",
     },
-    archived: {
-      type: DataTypes.BOOLEAN,
+    password: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: false,
+    },
+    catagory: {
+      type: DataTypes.ENUM("Student", "Faculty", "Driver"),
+      allowNull: false,
+      defaultValue: "Student",
     },
     createdAt: {
       allowNull: false,
